@@ -1473,7 +1473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 746747321}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1599,7 +1599,7 @@ GameObject:
   - component: {fileID: 796317782}
   - component: {fileID: 796317784}
   - component: {fileID: 796317783}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2620,7 +2620,7 @@ GameObject:
   - component: {fileID: 1055807154}
   - component: {fileID: 1055807156}
   - component: {fileID: 1055807155}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2967,7 +2967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1158994116}
   - component: {fileID: 1158994117}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3958,7 +3958,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1436988970}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4127,7 +4127,7 @@ GameObject:
   - component: {fileID: 1449851409}
   - component: {fileID: 1449851408}
   - component: {fileID: 1449851407}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5235,7 +5235,7 @@ GameObject:
   - component: {fileID: 1842680774}
   - component: {fileID: 1842680776}
   - component: {fileID: 1842680775}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5521,7 +5521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1928250356}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: LevelComplete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5561,7 +5561,7 @@ GameObject:
   - component: {fileID: 1933663209}
   - component: {fileID: 1933663211}
   - component: {fileID: 1933663210}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: LoadingScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5813,7 +5813,7 @@ GameObject:
   - component: {fileID: 1965099987}
   - component: {fileID: 1965099989}
   - component: {fileID: 1965099988}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ProgressText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
