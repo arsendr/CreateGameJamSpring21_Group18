@@ -1,0 +1,86 @@
+@startuml game
+
+
+
+abstract class Stem 
+{
+    attachedFlowers FlowerSnapPoint[]
+    attachedStems StemSnapPoint[]
+    effect StructuralCardEffect
+}
+
+class SingleStem
+{
+
+}
+interface CardComponent
+{
+    cardText() string    
+}
+
+class Flower 
+{
+    effect AtomCardEffect
+    cardText() string
+}
+
+class Card 
+{
+    name String 
+    effect StructuralCardEffect 
+    cardText() string 
+}
+
+class Soil
+class Seed 
+class Farmer 
+class Player
+class Enemy 
+class Inventory
+class Item
+class Portal 
+class SnapPoint 
+{
+    attachType enum
+}
+
+abstract class CardEffect
+{    
+    virtual void Activate()
+}
+
+
+class Battlefield
+{
+
+}
+abstract class PlantComponent
+{
+
+}
+class FarmPlot
+{
+    soilType Soil 
+    plant Plant
+}
+class Plant
+{
+    baseStem Stem
+    snapPoint SnapPoint
+}
+
+Stem <|-- SingleStem
+Stem <|-- SplitStem
+Stem <>-- SnapPoint
+
+PlantComponent <|-- Flower
+PlantComponent <|-- Stem
+
+PlantComponent -- CardComponent
+Item <|-- Seed
+Item <|-- Fertilizer
+Item <|-- Mutagen
+
+
+
+@enduml game
