@@ -29,6 +29,6 @@ public class DamageFlower : Flower
     // Update is called once per frame
     void Update()
     {
-        
+        DoSomeDebuggingNonsense();
     }
 }

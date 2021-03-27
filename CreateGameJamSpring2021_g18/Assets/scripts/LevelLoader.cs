@@ -13,6 +13,16 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadAsynchronously(sceneIndex));
     }
 
+    public void LoadWorld(int worldIndex)
+    {
+        GameManager.instance.worldType = worldIndex;
+    }
+
+    public void LoadBoss()
+    {
+        GameManager.instance.boss = true;
+    }
+
     IEnumerator LoadAsynchronously (int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
