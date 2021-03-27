@@ -60,7 +60,7 @@ namespace CreateGameJam21
 
             if (Pot.activeInHierarchy)
             {
-                if (PotGameObject.GetComponent<Pot>().PotList == null)
+                if ()
                 {
                     if (transform.parent == Inventory.transform)
                     {
