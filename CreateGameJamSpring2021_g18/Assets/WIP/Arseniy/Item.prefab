@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 341130645386878902}
   - component: {fileID: 4022654043229845439}
   - component: {fileID: 7233756246716252688}
+  - component: {fileID: 1412003967458750192}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -88,8 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b83dcc65e79bf458107bac0368d54f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultPlant: {fileID: 8443961938358155583, guid: c31a0c339339eb04180d73794adc3645,
+    type: 3}
   number: 0
-  PressToMoveButton: {fileID: 0}
   Inventory: {fileID: 0}
   Deck: {fileID: 0}
   Pot: {fileID: 0}
@@ -149,3 +151,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1412003967458750192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6196691438252072385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdcc6ea5a5030846b94bc252200222c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  containerPlantSnapper: {fileID: 0}
