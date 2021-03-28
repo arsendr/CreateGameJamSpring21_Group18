@@ -60,13 +60,13 @@ namespace CreateGameJam21
 
             if (Pot.activeInHierarchy)
             {
-                if ()
+                if (PotGameObject.GetComponent<Pot>().PotList.Count < 1)
                 {
                     if (transform.parent == Inventory.transform)
                     {
                         transform.parent = Pot.transform;
                         InventoryGameObject.GetComponent<Inventory>().InventoryList.Remove(this.gameObject);
-                        PotGameObject.GetComponent<Pot>().PotList[0] = this.gameObject;
+                        PotGameObject.GetComponent<Pot>().PotList.Add(this.gameObject);
                     }
                 }
             }

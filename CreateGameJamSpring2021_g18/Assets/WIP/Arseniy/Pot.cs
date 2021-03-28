@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Pot : MonoBehaviour
 {
-    public GameObject[] PotList = new GameObject[1];
+    public List<GameObject> PotList;
     // Start is called before the first frame update
     void Start()
     {
-        PotList[0] = null;
+        //PotList = new GameObject[0];
+        //GameObject[] PotList = new GameObject[0];
+        //PotList[0] = null;
     }
 
     // Update is called once per frame
