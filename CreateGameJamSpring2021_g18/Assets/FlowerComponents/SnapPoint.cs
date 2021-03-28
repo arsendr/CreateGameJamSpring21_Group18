@@ -5,8 +5,8 @@ using UnityEngine;
 public class SnapPoint : MonoBehaviour
 {
     [SerializeField] private PlantComponent connected = null;
-        [SerializeField] private bool DebugAddComponent;
-        [SerializeField] private GameObject DebugComponentToAdd;
+    [SerializeField] private bool DebugAddComponent;
+    [SerializeField] private GameObject DebugComponentToAdd;
 
     // Start is called before the first frame update
     public PlantComponent getConnectedPlantComponent()
@@ -44,11 +44,9 @@ public class SnapPoint : MonoBehaviour
     {
         if (connected == null)
         {
-            if (DebugComponentToAdd != null)
-            {
                 GameObject temp = Instantiate(DebugComponentToAdd,this.transform,true) as GameObject;
                 connected = temp.GetComponent<PlantComponent>();
-            }
+
         }
         else
         {
@@ -63,7 +61,5 @@ public class SnapPoint : MonoBehaviour
         attachment.transform.parent=this.transform;
         connected.transform.position = this.transform.position;
         connected.transform.rotation = this.transform.rotation;
-
-        
     }
 }

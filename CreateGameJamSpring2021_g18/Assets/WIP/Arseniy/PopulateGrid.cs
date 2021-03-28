@@ -38,7 +38,7 @@ namespace CreateGameJam21
                 newObj.GetComponent<ItemDetails1>().number = i;
                 newObj.GetComponent<Image>().color = Random.ColorHSV();
                 newObj.GetComponent<ItemDetails1>().FindStuff(Inventory,Pot,Deck);
-                GameManager.instance.Inventory.Add(newObj);
+                //GameManager.instance.Inventory.Add(newObj);
             }
 
         }

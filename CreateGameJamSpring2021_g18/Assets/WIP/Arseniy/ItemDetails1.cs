@@ -10,6 +10,7 @@ namespace CreateGameJam21
     public class ItemDetails1 : MonoBehaviour
     {
         // Start is called before the first frame update
+        public GameObject DefaultPlant;
         public int number;
         public GameObject Inventory;
         public GameObject Deck;
@@ -21,7 +22,7 @@ namespace CreateGameJam21
 
         void Start()
         {
-            PotGameObject = GameObject.Find("Pot");
+            PotGameObject = GameObject.Find("FlowerPot");
         }
 
         public void FindStuff(GameObject I, GameObject P, GameObject D)
@@ -38,10 +39,9 @@ namespace CreateGameJam21
         }
 
         public void DoIt()
-        {
+        {/*
             if (Deck.activeInHierarchy)
             {
-                Debug.Log("1");
                 if (transform.parent == Inventory.transform )
                 {
                     if (GameManager.instance.Deck.Count < 10)
@@ -58,7 +58,7 @@ namespace CreateGameJam21
                     GameManager.instance.Inventory.Add(this.gameObject);
                 }
             }
-
+            
             if (Pot.activeInHierarchy)
             {
                 
@@ -78,7 +78,12 @@ namespace CreateGameJam21
                         PotGameObject.GetComponent<Pot>().PotList.Remove(this.gameObject);
                     }               
             }
-            
+            */
+        }
+
+        public void Plant()
+        {
+            Instantiate(DefaultPlant);
         }
 
     }

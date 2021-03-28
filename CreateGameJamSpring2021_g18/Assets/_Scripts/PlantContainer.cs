@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlantContainer : MonoBehaviour
 {
-    [SerializeField] private SnapPoint containerPlantSnapper;
+    public SnapPoint containerPlantSnapper;
     // Start is called before the first frame update
     public PlantComponent GetPlantComponent()
     {
         return containerPlantSnapper.getConnectedPlantComponent();
     }
-    public void SetPlantComponent(PlantComponent newPlant)
+    public void SetPlantComponent()
     {
-        containerPlantSnapper.Attach(newPlant);
+        
+        containerPlantSnapper.Attach();
     }
     void Start()
     {

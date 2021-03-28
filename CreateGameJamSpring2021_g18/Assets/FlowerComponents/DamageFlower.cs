@@ -10,7 +10,7 @@ public class DamageFlower : Flower
     {
         foreach (Fighter currentTarget in target)
         {
-            currentTarget.ApplyDamage(_element,intensity);
+            //currentTarget.ApplyDamage(_element,intensity);
         }
     }
 

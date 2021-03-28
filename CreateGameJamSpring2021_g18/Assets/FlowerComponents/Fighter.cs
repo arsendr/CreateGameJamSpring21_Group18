@@ -6,29 +6,21 @@ public class Fighter : MonoBehaviour
 {
     [SerializeField] private int maxHealth;
     private int health;
-    [SerializeField] private int[] elementalResistance = {0,0,0,0,0,0};
-    public void ApplyDamage(Element elementalType, int amount)
+
+    public void ApplyDamage(int amount)
     {
-        health -= (int)(amount * 1-(elementalResistance[(int)elementalType] / 100));
-        Debug.Log("ouch!"+(int)health+(int)amount);
         if (health <= 0)
         {
-            Destroy(this.gameObject);
-            
+            Destroy(this.gameObject);           
         }
     }
 
     
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         health = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
