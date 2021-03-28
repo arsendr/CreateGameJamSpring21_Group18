@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlantContainer : MonoBehaviour
 {
-    [SerializeField] private SnapPoint containerPlantSnapper;
+    public SnapPoint containerPlantSnapper;
     // Start is called before the first frame update
     public PlantComponent GetPlantComponent()
     {
@@ -13,7 +13,7 @@ public class PlantContainer : MonoBehaviour
     public void SetPlantComponent()
     {
         
-        containerPlantSnapper.Attach(GetComponent<Pot>().PotList[0].GetComponent<PlantContainer>().GetPlantComponent());
+        containerPlantSnapper.Attach();
     }
     void Start()
     {

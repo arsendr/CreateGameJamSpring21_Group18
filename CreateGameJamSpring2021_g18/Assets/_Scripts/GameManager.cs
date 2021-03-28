@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public List<GameObject> Inventory;
     public List<GameObject> Deck;
     public int worldType = 0;
     public bool boss = false;

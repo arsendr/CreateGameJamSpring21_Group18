@@ -4,18 +4,34 @@ using UnityEngine;
 
 public class Pot : MonoBehaviour
 {
-    public List<GameObject> PotList;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject card;
+    [SerializeField] private float growtime = 10;
+    [SerializeField] private bool ready = false;
+
+    public ParticleSystem PS;
+    private void Start()
     {
-        //PotList = new GameObject[0];
-        //GameObject[] PotList = new GameObject[0];
-        //PotList[0] = null;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        growtime -=Time.deltaTime;
+        if (growtime < 0)
+        {
+            ready = true;
+            PS.Play();
+        }
+    }
+    private void OnMouseDown()
+    {
+        if (ready)
+        {
+            Debug.Log(card.GetComponent<Card>().GetEffect());
+            GameManager.instance.Deck.Add(card);
+            PS.Stop();
+            ready = false;
+            growtime = 10;
+        }
     }
 }

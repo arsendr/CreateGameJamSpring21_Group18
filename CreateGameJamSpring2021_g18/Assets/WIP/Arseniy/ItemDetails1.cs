@@ -39,10 +39,9 @@ namespace CreateGameJam21
         }
 
         public void DoIt()
-        {
+        {/*
             if (Deck.activeInHierarchy)
             {
-                Debug.Log("1");
                 if (transform.parent == Inventory.transform )
                 {
                     if (GameManager.instance.Deck.Count < 10)
@@ -59,7 +58,7 @@ namespace CreateGameJam21
                     GameManager.instance.Inventory.Add(this.gameObject);
                 }
             }
-
+            
             if (Pot.activeInHierarchy)
             {
                 
@@ -79,7 +78,7 @@ namespace CreateGameJam21
                         PotGameObject.GetComponent<Pot>().PotList.Remove(this.gameObject);
                     }               
             }
-            
+            */
         }
 
         public void Plant()
