@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public abstract class PlantComponent : MonoBehaviour
 {
     [SerializeField] public const int GROWTHSTAGES = 10;
+    private SnapPoint attachmentPoint;
     [SerializeField] private bool DebugTriggerGrowthstage;
+    
     [SerializeField] private int DebugGrowAmount;
     [SerializeField] private bool DebugTriggerActivation;
 
     [SerializeField] private Fighter DebugTestTarget;
     [SerializeField] private bool DebugTriggerMerge;
     [SerializeField] private PlantComponent DebugTestMerge;
+
+
 
     [SerializeField] private int _growthStage = 0;
 
@@ -22,22 +27,19 @@ public abstract class PlantComponent : MonoBehaviour
     }
     public void UpdateGrowth(int growthAmount)
     {
-        Debug.Log("imgrooooowing "+growthAmount.ToString());
         _growthStage += growthAmount;
         
         if (_growthStage > GROWTHSTAGES)
         {
-            Debug.Log("yepper");
        
             foreach (PlantComponent nextComponent in this.GetChildPlantComponents())
             {
-                Debug.Log("nextComponent.ToString()");
                 nextComponent.UpdateGrowth(_growthStage-GROWTHSTAGES);
             }
             //hacksolution for updating attached plant transforms. attach updates attached components transform to its own position
             foreach (SnapPoint snapperino in this.GetSnapPoints())
             {
-                snapperino.Attach(snapperino.getConnectedPlantComponent());
+                snapperino.Attach();
             }
             _growthStage = GROWTHSTAGES;
             
@@ -66,43 +68,59 @@ public abstract class PlantComponent : MonoBehaviour
     }
     public List<PlantComponent> GetChildPlantComponents()
     {
+        Debug.Log("Inside get childrens");
         List<PlantComponent> templist = new List<PlantComponent>();
-        Debug.Log("wof");
         foreach (SnapPoint currentPoint in this.GetSnapPoints())
         {
-            Debug.Log("mof");
             templist.Add(currentPoint.getConnectedPlantComponent());
+            Debug.Log("Made it through "+currentPoint.ToString());
         }
+        Debug.Log("exiting getchildcomponents "+templist.Count.ToString());
         return templist;
     }
 
 
     public PlantComponent Breed(PlantComponent partner)
     {
-        PlantComponent babby;
-        int geneticDeviation = Random.Range(0,10);
-        List<PlantComponent> genePool = new List<PlantComponent>();
-        foreach (SnapPoint gene in this.GetSnapPoints())
+        List<PlantComponent> dnaListPartner = partner.GetDna();
+        
+        PlantComponent returnComponent = Instantiate(this);
+        
+        List<PlantComponent> dnaListSelf = returnComponent.GetDna();
+        int indexSelfList = Random.Range(0,(dnaListSelf.Count));
+        int indexPartnerList = Random.Range(0,(dnaListPartner.Count));
+
+        List<SnapPoint> mutationPointList = new List<SnapPoint>();
+        Debug.Log("Snappingpoints: "+indexSelfList.ToString());
+        mutationPointList = dnaListSelf[indexSelfList].GetSnapPoints();
+        Debug.Log("time for muties?"+mutationPointList.Count.ToString());
+        if (mutationPointList.Count >= 1)
         {
-           genePool.Add(gene.getConnectedPlantComponent()); 
-        } 
-        foreach (SnapPoint gene in partner.GetSnapPoints())
-        {
-           genePool.Add(gene.getConnectedPlantComponent()); 
-        } 
-        switch (geneticDeviation)
-        {
-            case 1:
-                babby = this;
-                break;
-            case 2:
-                babby = partner;
-                break;
-            default:
-                babby = this;
-                break;
+            Debug.Log("doin mutatin"+mutationPointList.Count.ToString()+" /// "+dnaListPartner.Count.ToString()+" /// "+dnaListSelf.Count.ToString());
+            int indexSnapList = Random.Range(0,mutationPointList.Count);
+            PlantComponent mutation = Instantiate(dnaListPartner[indexPartnerList]);
+            PlantComponent dead = mutationPointList[indexSnapList].getConnectedPlantComponent();
+            Debug.Log("dead is "+dead.ToString());
+            mutationPointList[indexSnapList].Attach(mutation);
+            Destroy(dead.gameObject);
+            
         }
-        return babby;
+        
+        return returnComponent;
+    }
+    public List<PlantComponent> GetDna()
+    {
+        List<PlantComponent> templist = new List<PlantComponent>();
+        Debug.Log("Did it");
+        foreach (PlantComponent item in this.GetChildPlantComponents())
+        {
+            Debug.Log("madeitinside" + item.ToString());
+            templist.AddRange(item.GetDna());
+        }
+        Debug.Log("madeitthrough");
+        templist.Add(this);
+        Debug.Log("templist :"+templist.ToString());
+        return templist;
     }
 
     virtual public string CardText(int intensity)
@@ -136,6 +154,11 @@ public abstract class PlantComponent : MonoBehaviour
             DebugTriggerActivation = false;
             this.Activate(temptargetlist, 1);
             Debug.Log(this.CardText(1));
+        }
+        if (DebugTriggerMerge)
+        {
+            DebugTriggerMerge = false;
+            this.Breed(DebugTestMerge);
         }
         
 
