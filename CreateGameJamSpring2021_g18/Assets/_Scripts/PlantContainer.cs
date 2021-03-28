@@ -10,9 +10,10 @@ public class PlantContainer : MonoBehaviour
     {
         return containerPlantSnapper.getConnectedPlantComponent();
     }
-    public void SetPlantComponent(PlantComponent newPlant)
+    public void SetPlantComponent()
     {
-        containerPlantSnapper.Attach(newPlant);
+        
+        containerPlantSnapper.Attach(GetComponent<Pot>().PotList[0].GetComponent<PlantContainer>().GetPlantComponent());
     }
     void Start()
     {
