@@ -17,10 +17,11 @@ namespace CreateGameJam21
 
         void Start()
         {
-            Populate();
+            
             Inventory.transform.parent.transform.parent.gameObject.SetActive(false);
             Pot.transform.parent.transform.parent.gameObject.SetActive(false);
             Deck.transform.parent.transform.parent.gameObject.SetActive(false);
+            Populate();
         }
 
         void Update()
