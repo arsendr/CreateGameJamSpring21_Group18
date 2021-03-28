@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public List<GameObject> Inventory;
-    public GameObject[] Deck = new GameObject[20];
+    public List<GameObject> Deck;
     public int worldType = 0;
     public bool boss = false;
 

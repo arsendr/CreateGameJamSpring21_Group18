@@ -21,8 +21,6 @@ namespace CreateGameJam21
 
         void Start()
         {
-            InventoryGameObject = GameObject.Find("Inventory");
-            InventoryGameObject.GetComponent<Inventory>().InventoryList.Add(this.gameObject);
             PotGameObject = GameObject.Find("Pot");
         }
 
@@ -43,32 +41,42 @@ namespace CreateGameJam21
         {
             if (Deck.activeInHierarchy)
             {
-                if (transform.parent == Inventory.transform)
+                Debug.Log("1");
+                if (transform.parent == Inventory.transform )
                 {
-                    transform.parent = Deck.transform;
-                    GameManager.instance.Inventory.Remove(this.gameObject);
-                    GameManager.instance.Deck.Add(this.gameObject);
-
+                    if (GameManager.instance.Deck.Count < 10)
+                    {
+                        transform.parent = Deck.transform;
+                        GameManager.instance.Inventory.Remove(this.gameObject);
+                        GameManager.instance.Deck.Add(this.gameObject);
+                    }
                 }
                 else if (transform.parent == Deck.transform)
                 {
                     transform.parent = Inventory.transform;
-                    InventoryGameObject.GetComponent<Inventory>().DeckList.Remove(this.gameObject);
-                    InventoryGameObject.GetComponent<Inventory>().InventoryList.Add(this.gameObject);
+                    GameManager.instance.Deck.Remove(this.gameObject);
+                    GameManager.instance.Inventory.Add(this.gameObject);
                 }
             }
 
             if (Pot.activeInHierarchy)
             {
-                if (PotGameObject.GetComponent<Pot>().PotList.Count < 1)
-                {
+                
                     if (transform.parent == Inventory.transform)
                     {
-                        transform.parent = Pot.transform;
-                        InventoryGameObject.GetComponent<Inventory>().InventoryList.Remove(this.gameObject);
-                        PotGameObject.GetComponent<Pot>().PotList.Add(this.gameObject);
+                        if (PotGameObject.GetComponent<Pot>().PotList.Count < 1)
+                        {
+                            transform.parent = Pot.transform;
+                            GameManager.instance.Inventory.Remove(this.gameObject);
+                            PotGameObject.GetComponent<Pot>().PotList.Add(this.gameObject);
+                        }
                     }
-                }
+                    else if (transform.parent == Pot.transform)
+                    {
+                        transform.parent = Inventory.transform;
+                        GameManager.instance.Inventory.Add(this.gameObject);
+                        PotGameObject.GetComponent<Pot>().PotList.Remove(this.gameObject);
+                    }               
             }
             
         }
