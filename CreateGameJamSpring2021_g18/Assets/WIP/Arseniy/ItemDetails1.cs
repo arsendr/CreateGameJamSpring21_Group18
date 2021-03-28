@@ -46,8 +46,8 @@ namespace CreateGameJam21
                 if (transform.parent == Inventory.transform)
                 {
                     transform.parent = Deck.transform;
-                    InventoryGameObject.GetComponent<Inventory>().InventoryList.Remove(this.gameObject);
-                    InventoryGameObject.GetComponent<Inventory>().DeckList.Add(this.gameObject);
+                    GameManager.instance.Inventory.Remove(this.gameObject);
+                    GameManager.instance.Deck.Add(this.gameObject);
 
                 }
                 else if (transform.parent == Deck.transform)
