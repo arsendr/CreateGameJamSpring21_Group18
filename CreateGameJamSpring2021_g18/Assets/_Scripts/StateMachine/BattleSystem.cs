@@ -16,9 +16,12 @@ public class BattleSystem : StateMachine
     public List<GameObject> EnemyPositions;
     public GameObject PlayerPosition;
     public List<GameObject> BossEnemies;
+    public GameObject fighterPrefab;
+    public List<Card> enemyAttacks;
 
     private void Start()
     {
+
         // Initialize UI and deck
 
         SetState(new Begin(this));
@@ -31,5 +34,13 @@ public class BattleSystem : StateMachine
             StartCoroutine(State.PlayCard());
         }
     }
-
+    public void SpawnFighter(int i)
+    {
+        Instantiate(this.fighterPrefab,this.EnemyPositions[i].transform);
+    }
+    public void SpawnPlayer()
+    {
+        Instantiate(this.fighterPrefab,this.PlayerPosition.transform);
+        PlayerPosition.GetComponentInChildren<Fighter>().SetHealth(100);
+    }
 }

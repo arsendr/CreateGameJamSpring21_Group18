@@ -150,7 +150,6 @@ public abstract class PlantComponent : MonoBehaviour
                 if (DebugTriggerActivation)
         {
             List<Fighter> temptargetlist = new List<Fighter>();
-            temptargetlist.Add(DebugTestTarget);
             DebugTriggerActivation = false;
             this.Activate(temptargetlist, 1);
             Debug.Log(this.CardText(1));

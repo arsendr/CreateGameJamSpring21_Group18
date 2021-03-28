@@ -13,8 +13,8 @@ public class Card : MonoBehaviour
         target.GetComponent<Fighter>().ApplyDamage(effect);
     }
 
-    public int GetEffect()
+    public string GetEffect()
     {
-        return effect;
+        return "effect";
     }
 }

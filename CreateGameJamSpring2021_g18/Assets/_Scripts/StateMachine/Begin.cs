@@ -21,6 +21,7 @@ internal class Begin : State
             int minions = Random.Range(3, 5);
             for (int i=0; i<minions; i++)
             {
+                BattleSystem.SpawnFighter(i);
                 Debug.Log("Spawning a minion!");
             }
         }

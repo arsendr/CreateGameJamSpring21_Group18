@@ -7,6 +7,8 @@ public class Pot : MonoBehaviour
     [SerializeField] private GameObject card;
     [SerializeField] private float growtime = 10;
     [SerializeField] private bool ready = false;
+    
+    [SerializeField] private bool testText = false;
 
     public ParticleSystem PS;
     private void Start()
@@ -16,6 +18,13 @@ public class Pot : MonoBehaviour
 
     private void Update()
     {
+        if (testText)
+        {
+            testText = false;
+           GameManager.instance.Deck[0].GetComponent<DerpCard>().GetEffect();
+            
+        }
+
         growtime -=Time.deltaTime;
         if (growtime < 0)
         {
@@ -27,7 +36,7 @@ public class Pot : MonoBehaviour
     {
         if (ready)
         {
-            Debug.Log(card.GetComponent<Card>().GetEffect());
+            Debug.Log(card.GetComponent<DerpCard>().GetEffect());
             GameManager.instance.Deck.Add(card);
             PS.Stop();
             ready = false;

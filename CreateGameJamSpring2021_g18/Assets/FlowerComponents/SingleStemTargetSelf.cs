@@ -10,7 +10,7 @@ public class SingleStemTargetSelf : Stem
     {
         if (this.GetChildPlantComponents() != null)
         {
-        this.GetChildPlantComponents()[0].Activate(tempfighty,intensity);
+        this.GetChildPlantComponents()[0].Activate( tempfighty ,intensity);
         Debug.Log("Activaty "+intensity.ToString());
         }
     }

@@ -6412,6 +6412,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlowerPot
       objectReference: {fileID: 0}
+    - target: {fileID: 8442031375817416496, guid: 5c0c62dcfdd60a141bdf0953ed92d486,
+        type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 7272877431551565388, guid: 7d541b4fe913cfb44aad336d4e9f3572,
+        type: 3}
     - target: {fileID: 8442031375817416499, guid: 5c0c62dcfdd60a141bdf0953ed92d486,
         type: 3}
       propertyPath: m_RootOrder

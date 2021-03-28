@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SingleStem : Stem
 {
-    [SerializeField] private List<Fighter> tempyEnemy;
+    [SerializeField] private List<GameObject> tempyEnemy;
 
     public override void Activate(List<Fighter> target, int intensity)
     {

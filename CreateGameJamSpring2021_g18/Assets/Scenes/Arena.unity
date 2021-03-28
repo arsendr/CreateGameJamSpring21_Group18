@@ -740,6 +740,11 @@ MonoBehaviour:
   - {fileID: 107217827}
   PlayerPosition: {fileID: 345839828}
   BossEnemies: []
+  fighterPrefab: {fileID: 4223536586226216011, guid: e3fa8d76c088fb0499be49696ba97a52,
+    type: 3}
+  enemyAttacks:
+  - {fileID: 3377724253303450808, guid: 7d541b4fe913cfb44aad336d4e9f3572, type: 3}
+  - {fileID: 3377724253303450808, guid: 244450ee0c627f74cb6474e47911ab8a, type: 3}
 --- !u!4 &336014606
 Transform:
   m_ObjectHideFlags: 0

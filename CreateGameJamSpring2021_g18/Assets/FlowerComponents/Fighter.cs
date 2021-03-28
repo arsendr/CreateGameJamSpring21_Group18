@@ -15,6 +15,12 @@ public class Fighter : MonoBehaviour
         }
     }
 
+    public void SetHealth(int value)
+    {
+        maxHealth = value;
+        health = value;
+    }
+
     
 
     // Start is called before the first frame update
