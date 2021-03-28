@@ -7,6 +7,7 @@ public abstract  class Stem : PlantComponent
     [SerializeField] private List<SnapPoint> SnapPoints = new List<SnapPoint>();
     public override List<SnapPoint> GetSnapPoints()
     {
+        Debug.Log("getting childrens from a stem");
         return SnapPoints;
     }
     // Start is called before the first frame update

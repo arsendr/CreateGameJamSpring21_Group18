@@ -7,7 +7,8 @@ public abstract class Flower : PlantComponent
     private Element element;
     public override List<SnapPoint> GetSnapPoints()
     {
-        return null;
+        Debug.Log("Getting snappoints on flower");
+        return new List<SnapPoint>();
     }
 
     // Start is called before the first frame update
@@ -19,6 +20,6 @@ public abstract class Flower : PlantComponent
     // Update is called once per frame
     void Update()
     {
-        
+        DoSomeDebuggingNonsense();
     }
 }
